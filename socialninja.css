@@ -1,0 +1,105 @@
+
+/* === Font Embedding for Open Sans === */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/opensans/v34/mem8YaGs126MiZpBA-U1UpcaXcl0Aw.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('https://fonts.gstatic.com/s/opensans/v34/mem5YaGs126MiZpBA-UNirkOX-hpOqc.woff2') format('woff2');
+}
+
+/* === Base Variables === */
+:root {
+  --font-size: 28px;
+  --text-shadow: 1.5px 1.5px 0.2rem black;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  background-color: transparent;
+  color: white;
+  font-weight: 800;
+}
+
+/* === Main Line Container === */
+.hl-line {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  filter: drop-shadow(var(--text-shadow));
+  gap: 6px;
+  line-height: 1.2;
+}
+
+/* === Badge Container and Sizing === */
+.hl-badges img {
+  height: var(--font-size);
+  width: auto;
+  border-radius: 10%;
+  align-self: center;
+  position: relative;
+  top: 1px; /* you can try 0px or 2px depending on the font baseline */
+}
+
+.hl-badges img {
+  height: var(--font-size);
+  width: auto;
+  vertical-align: middle;
+  border-radius: 10%;
+}
+
+/* === Username and message side by side === */
+.hl-name,
+.hl-content {
+  font-size: var(--font-size);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  display: inline;
+  vertical-align: middle;
+}
+
+/* === Insert colon between username and message === */
+.hl-name::after {
+  content: ":";
+  padding-left: 4px;
+  padding-right: 6px;
+  color: white;
+  font-weight: 800;
+  font-size: var(--font-size);
+}
+
+/* === Emotes & Emoji === */
+.emote {
+  max-height: var(--font-size);
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+.emoji {
+  height: var(--font-size);
+  vertical-align: middle;
+}
+.hl-line.animate-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
